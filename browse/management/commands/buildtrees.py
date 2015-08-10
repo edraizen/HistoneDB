@@ -14,7 +14,8 @@ from Bio.Phylo import PhyloXMLIO
 import xml.etree.ElementTree as ET
 ET.register_namespace("", "http://www.phyloxml.org/1.10/phyloxml.xsd")
 
-colors = [
+colors7 = [
+    "#000000",
     "#66c2a5",
     "#fc8d62",
     "#8da0cb",
@@ -22,6 +23,21 @@ colors = [
     "#a6d854",
     "#ffd92f",
     "#e5c494"]
+
+colors = [
+    "#8dd3c7",
+    "#ffffb3",
+    "#bebada",
+    "#fb8072",
+    "#80b1d3",
+    "#fdb462",
+    "#b3de69",
+    "#fccde5",
+    "#d9d9d9",
+    "#bc80bd",
+    "#ccebc5",
+    "#ffed6f",
+]
 
 class Command(BaseCommand):
     help = 'Building data for variant trees using ClustalW2'
@@ -152,10 +168,10 @@ class Command(BaseCommand):
 
                         name.attrib = {"bgStyle": variant.replace(".", "")}
 
-                        if "canonical" in variant:
-                            name.text = "."
-                        else:
-                            name.text = genus
+                        # if "canonical" in variant:
+                        #     name.text = "."
+                        # else:
+                        name.text = genus
                         
                         chart = ET.Element("chart")
                         group = ET.Element("group")
